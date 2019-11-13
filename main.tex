@@ -5,6 +5,7 @@
 \begin{document}
 
 %\maketitle
+\textbf{Alberto Oporto Ames \#139}
 \thispagestyle{fancy}
 
 % Circuito 1{{{
@@ -68,7 +69,7 @@
 		[
 			current direction' = {pos=0.1, info'=$I_1$},
 			battery            = {pos=0.3, info'=$9V$},
-			current direction' = {pos=0.9, info'=$I_7$}
+			current direction' = {pos=0.9, info'=$I_6$}
 		]
 		++(6,0);
 
@@ -81,11 +82,7 @@
 		++(0,2);
 
 	\draw (6,0)
-		to
-		[
-			resistor           = {info'=$1k\Omega$},
-			current direction' = {pos=0.85, info'=$I_6$}
-		]
+		to[resistor={info'=$1k\Omega$}]
 		++(0,2);
 
 	\draw (0,2)
@@ -96,8 +93,6 @@
 			current direction = {pos=0.8, info=$I_5$}
 		]
 		++(6,0);
-
-	%\draw (4,2) -- (6,4);
 
 	\draw (6,2) -- ++(0,2)
 		to
@@ -115,31 +110,65 @@
 \end{figure}
 % }}}
 
+\begin{align*}
+	I_1 &= I_2 + I_3\\
+	I_3 &= I_4 + I_5\\
+	I_6 &= I_2 + I_5\\
+	%I_1 &= I_4 + I_6\\
+	\\
+	9 &= 14000I_2 + 1000I_6\\
+	9 &= 15000I_3 + 1000I_6\\
+	9 &= 15000I_3 + 1000I_4\\
+	\\
+	I_1 &= \frac{261}{224500}A\\
+	I_2 &= \frac{27}{44900}A\\
+	I_3 &= \frac{63}{112250}A\\
+	I_4 &= \frac{261}{449000}A\\
+	I_5 &= \frac{-9}{449000}A\\
+	I_6 &= \frac{261}{449000}A
+\end{align*}
+
 % Tabla {{{
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		Mediciones o lecturas de instrumentos & Valor teórico &
-		Valor expermiental & Porcentaje de error\\
+		\(
+			\overset
+			{
+				(V:20)(A:20m)
+			}
+			{
+				\text{Valor expermiental}
+			}
+		\)
+		& Porcentaje de error\\
 		\hline
-		Lectura del amperímetro $A_1$\\
+		Lectura del amperímetro $A_1(I_1)$ &
+		$1.16mA$ & $2.47$
+		\\
 		\hline
 		Corriente en la resistencia de $5k\Omega$ &
 		\multicolumn{3}{c|}{No existe}\\
 		\hline
-		Lectura del amperímetro $A_2$\\
+		Lectura del amperímetro $A_2(I_2)$ &
+		$0.6mA$ & $1.94$\\
 		\hline
-		Corriente en la resistencia de $10k\Omega$\\
+		Corriente en la resistencia de $10k\Omega(I_2)$ &
+		$0.6mA$\\
 		\hline
-		Lectura del amperímetro $A_3$\\
+		Lectura del amperímetro $A_3(I_6)$ &
+		$0.58mA$ & $1.21$\\
 		\hline
 		Voltaje en la resistencia de $30k\Omega$ &
 		\multicolumn{3}{c|}{No existe}\\
 		\hline
-		Lectura del voltímetro $V_1$\\
+		Lectura del voltímetro $V_1$ &
+		$0.58\Omega$ & $1.23\Omega$\\
 		\hline
-		Lectura del voltímetro $V_2$\\
+		Lectura del voltímetro $V_2$ &
+		$1.20\Omega$ & $3.92\Omega$\\
 		\hline
 	\end{tabular}
 \end{table}
